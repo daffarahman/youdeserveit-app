@@ -5,6 +5,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation3.runtime.NavEntry
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.ui.NavDisplay
+import com.madebydap.youdeserveit.ui.authentication.RegisterScreen
 import com.madebydap.youdeserveit.ui.home.HomeScreen
 import com.madebydap.youdeserveit.ui.onboarding.OnBoardingScreen
 
@@ -24,13 +25,20 @@ fun RootNavigation(
                 is NavScreen.OnBoardingNavScreen -> NavEntry(key) {
                     OnBoardingScreen(
                         onFinished = {
-                            navController.clear()
-                            navController.add(NavScreen.HomeNavScreen)
+                            navController.add(NavScreen.RegisterNavScreen)
                         }
                     )
                 }
                 is NavScreen.HomeNavScreen -> NavEntry(key) {
                     HomeScreen()
+                }
+                is NavScreen.RegisterNavScreen -> NavEntry(key) {
+                    RegisterScreen(
+                        onNextClicked = {
+                            navController.clear()
+                            navController.add(NavScreen.HomeNavScreen)
+                        }
+                    )
                 }
             }
         }

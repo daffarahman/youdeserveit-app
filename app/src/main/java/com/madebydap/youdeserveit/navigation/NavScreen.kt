@@ -8,4 +8,6 @@ sealed interface NavScreen : NavKey {
     data object OnBoardingNavScreen : NavScreen
     @Serializable
     data object HomeNavScreen : NavScreen
+    @Serializable
+    data object RegisterNavScreen : NavScreen
 }
